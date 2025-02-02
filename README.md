@@ -33,5 +33,54 @@ Due to the complexity of table formatting, some tools like `pdfplumber` or `came
 ## 📦 How to Run the Project
 
 ### 1. Install Required Dependencies
-```bash
-pip install -r requirements.txt
+
+```pip install -r requirements.txt```
+2. Tesseract Installation
+You'll need to install Tesseract OCR to extract text from PDF images:
+
+Windows: ```https://github.com/UB-Mannheim/tesseract/wiki```
+Linux/MacOS: ```https://tesseract-ocr.github.io/tessdoc/Installation.html```
+
+Add Tesseract to your system's environment variables or specify the path in the script:
+
+```pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"```
+
+3. Clone the Repository
+
+```git clone https://github.com/Karthik0704/Mayora_OCR.git```
+```cd pdf-table-extraction```
+
+4. Run the Extraction Script
+
+```python extract_tables.py --input "path_to_your_pdf.pdf" --output "output.xlsx" --page <page_number>```
+
+Parameters:
+
+--input: Path to the PDF file
+--output: Name of the output Excel file
+--page: Page number containing the table
+Example:
+
+```python extract_tables.py --input "cardio_structured.pdf" --output "output_cardio.xlsx" --page 6```
+
+5. Handling Multiple Pages
+```python extract_tables.py --input "prot_sap_102.pdf" --output "output_prot_sap_102.xlsx" --page_range 50-60```
+
+📂 Project Structure
+
+📁 pdf-table-extraction
+│── 📄 README.md           # Project overview and instructions
+│── 📄 requirements.txt    # Python dependencies
+│── 📂 data/               # Folder containing input PDF files
+│── 📂 output/             # Folder to store output Excel files
+│── 📜 extract_tables.py   # Python script for table extraction
+
+📝 Future Work & Improvements
+Improving OCR accuracy for complex expressions and formulas
+Supporting batch extraction for multiple PDFs or pages
+Enhancing GUI-based interaction for easier use by non-technical users
+📜 License
+This project is licensed under the MIT License.
+
+🤝 Contributing
+Contributions to improve the project are welcome! Feel free to open an issue or submit a pull request.
